@@ -10,7 +10,7 @@ path = "src/main.rs"
 
 [dependencies]
 # Voice AI pipeline
-rustvani = "0.1"                          # TODO: pin to actual published version
+rustvani = "0.1.0"                        
 
 # Async runtime & traits
 tokio = { version = "1", features = ["full"] }
