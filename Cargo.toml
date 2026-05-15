@@ -1,0 +1,39 @@
+[package]
+name = "dhara-pizza"
+version = "0.1.0"
+edition = "2021"
+description = "Dhara Pizza — voice ordering server powered by Rustvani"
+
+[[bin]]
+name = "dhara-pizza"
+path = "src/main.rs"
+
+[dependencies]
+# Voice AI pipeline
+rustvani = "0.1"                          # TODO: pin to actual published version
+
+# Async runtime & traits
+tokio = { version = "1", features = ["full"] }
+async-trait = "0.1"
+
+# Web framework
+axum = { version = "0.8", features = ["ws"] }
+tower-http = { version = "0.6", features = ["cors"] }
+
+# Database (Neon PostgreSQL)
+tokio-postgres = "0.7"
+native-tls = "0.2"
+postgres-native-tls = "0.5"
+
+# Serialization
+serde_json = "1"
+
+# Logging
+log = "0.4"
+env_logger = "0.11"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true
